@@ -14,10 +14,10 @@ public class Companie {
     public Companie() {
     }
 
-    public Companie(String nume, List<Candidat> angajati, List<Departament> departamente) {
+    public Companie(String nume) {
         this.nume = nume;
-        this.angajati = angajati;
-        this.departamente = departamente;
+
+
     }
 
     public String getNume() {
