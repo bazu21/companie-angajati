@@ -46,25 +46,28 @@ public class Companie {
 
     //
 
-    public void recruteaza(Candidat candidat){
+    public void recruteaza() {
 
-        if (candidat.getNumeDepartament().equalsIgnoreCase("Marketing")){
+        for (Candidat candidat : this.angajati) {
 
-           Marketing m = new Marketing();
-           StatusCandidat status = m.evalueaza(candidat);
+            if (candidat.getNumeDepartament().equalsIgnoreCase("Marketing")) {
 
-           candidat.setStatusCandidat(status);
+                Marketing m = new Marketing();
+                StatusCandidat status = m.evalueaza(candidat);
+
+                candidat.setStatusCandidat(status);
 
 
-        }else if (candidat.getNumeDepartament().equalsIgnoreCase("Productie")){
+            } else if (candidat.getNumeDepartament().equalsIgnoreCase("Productie")) {
 
-            Productie p = new Productie();
-            StatusCandidat status = p.evalueaza(candidat);
-            candidat.setStatusCandidat(status);
+                Productie p = new Productie();
+                StatusCandidat status = p.evalueaza(candidat);
+                candidat.setStatusCandidat(status);
 
-        }else{
+            } else {
 
-            throw new IncapacitateEvaluare("Candidatul nu poate fi evaluat");
+                throw new IncapacitateEvaluare("Candidatul nu poate fi evaluat");
+            }
         }
     }
 }

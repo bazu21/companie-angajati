@@ -1,3 +1,5 @@
+
+
 public class Candidat {
 
     private String name;
@@ -7,6 +9,18 @@ public class Candidat {
     private StatusCandidat statusCandidat;
 
     //gettere,settere,constructor
+
+
+    @Override
+    public String toString() {
+        return "\nCandidat{" +
+                "\nname='" + name + '\'' +
+                "\n, prenume='" + prenume + '\'' +
+                "\n, nivelDeCompetenta=" + nivelDeCompetenta +
+                "\n, numeDepartament='" + numeDepartament + '\'' +
+                "\n, statusCandidat=" + statusCandidat +
+                '}';
+    }
 
     public String getName() {
         return name;
@@ -54,7 +68,6 @@ public class Candidat {
         this.nivelDeCompetenta = nivelDeCompetenta;
         this.numeDepartament = numeDepartament;
         this.statusCandidat = StatusCandidat.IN_ASTEPTARE;
-
 
 
     }

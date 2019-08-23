@@ -1,6 +1,6 @@
 public class Productie extends Departament implements Evaluator {
 
-     ////static final  = constanta
+    ////static final  = constanta
     ////nume = "productie"
     //nivelComp = 3
 
@@ -8,24 +8,24 @@ public class Productie extends Departament implements Evaluator {
         super("Productie", 3);
     }
 
-    public StatusCandidat evalueaza(Candidat candidat){
-         //implementata din evaluator
+    public StatusCandidat evalueaza(Candidat candidat) {
+        //implementata din evaluator
 
         if (candidat.getNivelDeCompetenta() > super.getNivelMinimDeCompetente()) {
 
             return StatusCandidat.ACCEPTAT;
 
-        }else if (candidat.getNivelDeCompetenta()< super.getNivelMinimDeCompetente()){
+        } else if (candidat.getNivelDeCompetenta() < super.getNivelMinimDeCompetente()) {
 
             return StatusCandidat.RESPINS;
 
 
-        }else{
+        } else {
             return StatusCandidat.IN_ASTEPTARE;
 
         }
     }
 
-     }
+}
 
 

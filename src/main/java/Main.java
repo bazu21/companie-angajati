@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,15 +36,80 @@ public class Main {
 
         companie.setAngajati(candidati);
 
-        for (Candidat candidat : candidati) {
-            try {
-                companie.recruteaza(candidat);
-                System.out.println(candidat.getStatusCandidat());
-            } catch (IncapacitateEvaluare evaluare) {
+//print in consola candidati dupa recrutare
 
+        ///scriere in fisier candidatii dupa recrutare
 
-                System.out.println("nu stii nimik");
-            }
+        try {
+            companie.recruteaza();
+
+        } catch (IncapacitateEvaluare evaluare) {
+
         }
+        writeCandidatesToTxtFile(companie.getAngajati());
+    }
+
+    public static void writeCandidatesToTxtFile(List<Candidat> candidats) {
+        BufferedWriter writer = null;
+
+        try {
+
+            writer = new BufferedWriter(new FileWriter("candidati.txt"));
+            writer.write(candidats.toString());
+
+        } catch (
+                IOException evaluare) {
+
+        } finally {
+
+            try {
+                writer.close();
+
+            } catch (IOException evaluare) {
+
+
+            }
+
+        }
+
     }
 }
+
+///fisier.json stocheaza txt
+//key:value
+//countries:[
+//  { country
+//   name:"canada"
+//  moneda:"euro"
+//   }
+// 1 deschid fisierul(dau numele)
+// 2 ce scriu? (string,char,byte)
+// 3 inchid fisierul
+// arunca exceptii IOException (exceptie de tip check)
+
+// finally se executa intotdeuna
+// clasa tuturor exceptiilor "throwable"
+
+// colectii - list si maps
+// list - arraylist,linkedlist
+// add adauga elemente in array
+// set - hashcode ()-
+// maps - specific "key" si "value" care pot sa fie orice obiect
+// se adauga elemente cu "put".
+//verificam daca ii goala sau nu cu "size" sau "empty"
+//
+
+// final = la metode (nu poate fi supra scrisa
+// final = clasa(nu poate fi extends de alte clase )
+// static = variabila sau metoda (apartine clasei,toate variabilele au acelasi nume)
+//interfata = sunt niste definitii de metode care le lipseste implementarea (nu are body)
+//          = fiecare clasa care preia interf trebuie sa fie implementata
+//          = public default test() - esti obligat sa implementezi si are body
+//          = variabilele din interfata pot sa fie constante "public final"
+//          = nu avem constructor
+//          = nu poti sa ai "new",nu poti instantia
+//abstract = fara implementare
+//         = nu are body(implementare)
+//         = poate fi mostenita
+//         = nu are constructor
+//         = poate fi extinsa
